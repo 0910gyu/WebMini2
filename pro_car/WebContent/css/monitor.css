@@ -1,0 +1,279 @@
+@import url('https://fonts.googleapis.com/earlyaccess/nanumgothic.css');
+	html { height: 100%; margin: 0; padding: 0; font-family: 'NanumGothic'; font-size:12px;}
+    body { height: 100%; margin: 0; padding: 0; font-family: 'NanumGothic'; font-size:12px;}
+    input[type='button'], select, option, label{ cursor:pointer; }
+    dl, dt, dd, ul, ol, li { list-style: none;}
+	label.checkbox-label input[type=checkbox]{position: relative;vertical-align: middle;bottom: 1px;}	
+ 	a:link, a:visited, a:hover, a:active { text-decoration: none; }
+
+	#wrap{ width:100%; height:100%; margin: 0; padding: 0; position:relative; min-width:1000px; min-height:750px; font-family: 'NanumGothic';}
+    #wrap #head      {position:relative; width:100%; height:30px; overflow:hidden;z-index:1; background:url(/web/_images/monitor/TopBg.gif) repeat-x;}
+    #wrap #container {position:absolute; left:0px; right:0px; top:30px; bottom:0px; padding:0px; margin:0px;}
+    
+    #ajaxBusy {	color: #666;position:absolute;	left:0px; top:0px; right:0px; bottom:0px; z-index:50; text-align:center;	background: none rgba(0, 0, 0, 0.5);filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr='#80000000', endColorstr='#80000000');		display:none;    }    
+    #ajaxBusy div   { 	position:absolute; 	padding-left:2px; width:43px; padding-top:5px;	height:40px;   	background: #ffffff;   }
+
+	/* Header Line */
+    #head #chrgstat {  height:100%; float:right; padding:0px; overflow:hidden; font-size:13px;}
+    #head #chrgstat:after{ clear:both ;}
+    #head #chrgstat ul { margin:0px; padding:0px; height:100%;}
+    #head #chrgstat ul li { display:inline-block; width:150px; height:100%; padding-top:0px; background:url(/web/_images/monitor/UtilBar.gif) left repeat-y; text-align:center;}
+    #head #chrgstat #li2 { display:inline-block; width:210px; height:100%; padding-top:0px; background:url(/web/_images/monitor/UtilBar.gif) left repeat-y; text-align:center;}
+
+    #container #lnb { position:absolute; left:0px; right:0px; top:0px; bottom:0px; width:350px; overflow:hidden;}
+    #container #maphead { position:absolute; left:350px; right:0px; top:0px; height:5px; background:#588ABF;}
+    #container #map { position:absolute; left:350px; right:0px; top:5px; bottom:0px; overflow:hidden; background:#92B6D2;}
+
+    #container #lnb #lmenu   {position:absolute; left: 0px; top:0px; bottom:0px; width: 65px; color:#ffffff; background:url(/web/_images/monitor/LeftBg2.gif) repeat-y; }
+    #container #lnb #lcontent{position:absolute; left:65px; top:0px; bottom:0px; width:285px; color:black  ; background:#32394B;   }
+    #container #lnb #lcontent #findStation { position:absolute; left:0px; right:0px; top:0px; bottom:0px; padding:5px; background:url(/web/_images/monitor/CenterBg3.gif) repeat-y}
+    #container #lnb #lcontent #findPath    { position:absolute; left:0px; right:0px; top:0px; bottom:0px; padding:5px; background:url(/web/_images/monitor/CenterBg3.gif) repeat-y; display:none; }
+    #container #lnb #lcontent #martHoly    { position:absolute; left:0px; right:0px; top:0px; bottom:0px; padding:5px; background:url(/web/_images/monitor/CenterBg3.gif) repeat-y; display:none; }
+
+    /** for Left Menu (ì¶©ì „ì†Œê²€ìƒ‰, ê²½ë¡œì°¾ê¸°, ë§ˆíŠ¸íœ´ë¬´ì¼  **/
+    #lmenu ol { list-style:none; padding:0px; margin:0px; }
+    #lmenu ol li { height:50px; text-align:center;  font-size:12px; font-weight:normal; padding-top:35px; border:0px solid #000000; cursor:pointer}
+
+	#lmenu ol li.bt_station { background: url(/web/_images/monitor/Bt_station_off.png) no-repeat;}
+	#lmenu ol li.bt_station.on { background: url(/web/_images/monitor/Bt_station_on.png) no-repeat; }
+	#lmenu ol li.bt_station.active { background: url(/web/_images/monitor/Bt_station_on.png) no-repeat; }
+
+	#lmenu ol li.bt_course {background: url(/web/_images/monitor/Bt_course_off.png) no-repeat;}
+	#lmenu ol li.bt_course.on {background: url(/web/_images/monitor/Bt_course_on.png) no-repeat;}
+	#lmenu ol li.bt_course.active {background: url(/web/_images/monitor/Bt_course_on.png) no-repeat;}
+
+	#lmenu ol li.bt_mart {background: url(/web/_images/monitor/Bt_mart_off.png) no-repeat;}
+	#lmenu ol li.bt_mart.on {background: url(/web/_images/monitor/Bt_mart_on.png) no-repeat;}
+	#lmenu ol li.bt_mart.active {background: url(/web/_images/monitor/Bt_mart_on.png) no-repeat;}
+
+
+    #findStation #tabMenu { width:100%; height:30px; font-size:14px; font-weight:bold;}
+    #findStation #tabMenu .findTabBtn { width:48%; height:25px; float:left; text-align:center; border:1px solid #2D3A43; padding-top:10px; cursor:pointer; }
+    #findStation #tabMenu #btnFindByLoc.on   { background: url(/web/_images/monitor/TapOv.gif) no-repeat;  font-weight:bold;  color:#FFE58A;}
+    #findStation #tabMenu #btnFindByLoc.off  { background: url(/web/_images/monitor/TapOff.gif) no-repeat; font-weight:normal; color:#FFFFFF;}
+    #findStation #tabMenu #btnFindByName.on  { background: url(/web/_images/monitor/TapOv.gif) no-repeat;  font-weight:bold;  color:#FFE58A;}
+    #findStation #tabMenu #btnFindByName.off { background: url(/web/_images/monitor/TapOff.gif) no-repeat; font-weight:normal; color:#FFFFFF;}
+
+    #findStation .topBoxLine  { position:absolute; left:5px;  right:3px; top:56px;    height:6px; background: url(/web/_images/monitor/CenterBgTop.gif) no-repeat 0px 0px;}
+    #findStation #tabContent  { position:absolute; left:11px; right:3px; top:62px;  bottom:10px; background:#ffffff; padding-top:3px;}
+    #findStation .botBoxLine  { position:absolute; left:5px;  right:3px; bottom:6px; height:6px; background: url(/web/_images/monitor/CenterBgBot.gif) no-repeat 0px 0px;}
+
+    #findStation #tabContent #locationSrch { position:absolute; left:0px; right:0px; top:5px;  height:140px; border-bottom: 1px dashed #cacacc; background:#ffffff; padding-top:3px;}
+    #findStation #tabContent #nameSrch	   { position:absolute; left:0px; right:0px; top:2px;  height:150px; border-bottom: 1px dashed #cacacc; background:#ffffff; padding-top:3px; display:none; }
+    #findStation #tabContent #statList     { position:absolute; left:0px; right:3px; top:155px; bottom: 40px; background:#F6F6F6; overflow-y:scroll; overflow-x:hidden; border: 0px solid #cacaca;  margin-top:20px; padding-right:15px }    
+    #findStation #tabContent #downList	   { position:absolute;           right:5px; bottom: 10px;  background:yellow; }
+
+    #findStation select { width:160px; height:25px; font-size:12px; }
+    #findStation dl dt { display:inline-block; width:90px; padding-left:10px;}
+    #findStation dl dd { display:inline-block; margin:0px; padding:0px;}
+    #findStation dl { margin:0px;  height:30px; }
+    #findStation input[type='text'] { width:156px; height:19px; font-size:12px; }
+
+
+    #findPath  h1 { font-size:16px; color:#fff; padding : 2px 0 0 5px; top:0px; font-weight:bold; }
+    #findPath  #startLoc { position:absolute; left:5px; right:3px; top:50px;   height:230px;  }
+    #findPath  #arrivLoc { position:absolute; left:5px; right:3px; top:280px;  height:220px;  }
+    #findPath  #pathLoc  { position:absolute; left:5px; right:3px; top:500px;  bottom:5px;    }
+
+    #findPath  #startLoc .topBoxLine      { position:absolute; left:0px; top:0px; right:0px; height:6px; background: url(/web/_images/monitor/CenterBgTop.gif) no-repeat 0px 0px;}
+    #findPath  #startLoc #startLocContent { position:absolute; left:6px; top:6px; right:0px; bottom:6px; background:#ffffff;}
+    #findPath  #startLoc #startLocContent .boxTitle	  { position:absolute; left:5px;  top:4px;  right:0px; bottom:0px; height:20px; background:url(/web/_images/monitor/blit_03.gif) 5px 0px no-repeat; text-indent:32px; font-size:14px ; font-weight:bold;}
+	#findPath  #startLoc #startLocContent .boxContent { position:absolute; left:0px;  top:18px;  right:0px; bottom:0px;  }
+    #findPath  #startLoc .botBoxLine      { position:absolute; left:0px;  right:0px; bottom:0px; height:6px; background: url(/web/_images/monitor/CenterBgBot.gif) no-repeat 0px 0px;}
+    #findPath  #startLoc #startLocContent #statListOnStartLoc { position:absolute; left:5px; right:5px; top:100px; bottom:5px; background:#F6F6F6; overflow-y:scroll; overflow-x:hidden; border:1px solid #cacaca;}
+
+    #findPath  #arrivLoc .topBoxLine      { position:absolute; left:0px; top:0px; right:0px; height:6px; background: url(/web/_images/monitor/CenterBgTop.gif) no-repeat 0px 0px;}
+    #findPath  #arrivLoc #arrivLocContent { position:absolute; left:6px; top:6px; right:0px; bottom:6px; background:#ffffff;}
+    #findPath  #arrivLoc #arrivLocContent .boxTitle	  { position:absolute; left:5px;  top:4px;  right:0px; bottom:0px; height:20px; background:url(/web/_images/monitor/blit_03.gif) 5px 0px no-repeat; text-indent:32px; font-size:14px ; font-weight:bold;}
+	#findPath  #arrivLoc #arrivLocContent .boxContent { position:absolute; left:0px;  top:18px;  right:0px; bottom:0px;  }
+    #findPath  #arrivLoc .botBoxLine     { position:absolute; left:0px;  right:0px; bottom:0px; height:6px; background: url(/web/_images/monitor/CenterBgBot.gif) no-repeat 0px 0px;}
+    #findPath  #arrivLoc #arrivLocContent  #statListOnArrivLoc { position:absolute; left:5px; right:5px; top:70px;  bottom:5px; background:#F6F6F6; overflow-y:scroll; overflow-x:hidden; border:1px solid #cacaca;}
+
+    #findPath  #pathLoc .topBoxLine     { position:absolute; left:0px; top:0px; right:0px; height:6px; background: url(/web/_images/monitor/CenterBgTop.gif) no-repeat 0px 0px;}
+    #findPath  #pathLoc #pathLocContent { position:absolute; left:6px; top:6px; right:0px; bottom:6px; background:#ffffff;}
+	#findPath  #pathLoc #pathLocContent .boxContent { position:absolute; left:0px;  top:18px;  right:0px; bottom:0px;  }
+    #findPath  #pathLoc #pathLocContent dl dt { display:inline-block; width:60px; padding-left:10px;}
+    #findPath  #pathLoc #pathLocContent dl dd { display:inline-block; margin:0px; padding:0px; }
+    #findPath  #pathLoc #pathLocContent input[type='text'] { width:183px; height:18px; font-size:12px; }
+    #findPath  #pathLoc .botBoxLine     { position:absolute; left:0px;  right:0px; bottom:0px; height:6px; background: url(/web/_images/monitor/CenterBgBot.gif) no-repeat 0px 0px;}
+    #findPath  #pathLoc  #pathLocContent #statListOnPathLoc  { position:absolute; left:5px; right:5px; top:95px;  bottom:5px; background:#F6F6F6; overflow-y:scroll; border:1px solid #cacaca;}
+
+    #findPath dl    { height:17px; }
+    #findPath dl dt { display:inline-block; width:90px; padding-left:10px; }
+    #findPath dl dd { display:inline-block; margin:0px; padding:0px;}
+    #findPath select { width:160px; height:25px; font-size:12px; }
+    #findPath input[type='text'] { width:156px; height:18px; font-size:12px; }
+
+	#martHoly  h1 { font-size:16px; color:#fff; padding:2px 0 0 5px; top:0px; font-weight:bold; }
+	#martHoly  #martHolyContent { position:absolute;  left:5px; right:2px; top:50px;   bottom:6px }
+	#martHoly  #martHolyContent .topBoxLine   { position:absolute; left:0px; top:0px; right:0px; height:6px; background: url(/web/_images/monitor/CenterBgTop.gif) no-repeat 0px 0px;}	
+    #martHoly  #martHolyContent  #martContent { position:absolute; left:6px; top:6px; right:0px; bottom:6px; background:#ffffff; overflow-y:scroll; }
+    #martHoly  #martHolyContent .botBoxLine   { position:absolute; left:0px; right:0px; bottom:0px; height:6px; background: url(/web/_images/monitor/CenterBgBot.gif) no-repeat 0px 0px;}
+
+	#martHoly  #martHolyContent  #martContent  H1 { font-size: 16px; letter-spacing: -1px; color: #FFF; padding: 2px 0 0 5px; }
+	#martHoly  #martHolyContent  #martContent  H2 { height: 19px; background: url(/web/_images/monitor/blit_03.gif) 5px 0px no-repeat; font-size: 14px; letter-spacing: -1px; text-indent: 29px; color: 000px; margin:0px;padding:0px; margin-top:20px;  }
+	#martHoly  #martHolyContent  #martContent .Store { height: auto; border-bottom: 1px dashed #c8cace; padding: 5px 5px 20px 5px; margin-left:15px;}
+	#martHoly  #martHolyContent  #martContent .Store dl { margin:10px 0px 4px 0px ; }
+	#martHoly  #martHolyContent  #martContent .Store dl dt { height: 24px; margin-bottom: 5px; margin: 0px; padding: 0px;}
+	#martHoly  #martHolyContent  #martContent .Store dl dd { font-size: 14px; font-weight: bold; letter-spacing: -1px; margin-bottom: 10px;margin: 0px; padding: 0px; padding-bottom:5px; } 
+	#martHoly  #martHolyContent  #martContent .Store ul { font-size: 12px; 	margin: 0px; padding: 0px;}
+	#martHoly  #martHolyContent  #martContent .Store ul li { height: 21px; font-weight: normal; color: #4c4c4c; background: url(/web/_images/monitor/blit_01.gif) left 6px no-repeat; padding-left: 8px; }
+	#martHoly  #martHolyContent  #martContent .Store ul li b { color: #000; }
+
+    .btnFind {background:url(/web/_images/monitor/Bt_Hits.gif)  no-repeat; height:20px; width:52px;padding:0px;margin:0px; border:none;font-size:11px;margin-right:10px;}
+    .btnDown {background:url(/web/_images/monitor//Bt_Down.png) no-repeat; height:27px; width:73px;padding:0px;margin:5px 5px; border:none;font-size:11px;padding-left:8px; }
+
+	.floatRight { float:right; }
+    .floatRight:after{ clear:both; }
+    .floatLeft { float:left; }
+    .floatLeft:after{ clear:both; }
+
+	#stationSchResultdl .SchResultdt     { width:100%; padding:5px; padding-bottom: 1px; font-weight:bold;   cursor:pointer; color:#0066CC;}
+	#stationSchResultdl .SchResultdt.on  { background-color:#F2E58A; }
+	#stationSchResultdl .SchResultdd     { width:100%; padding:5px; padding-top: 2px; margin-bottom : 10px;  cursor:pointer;}
+	#stationSchResultdl .SchResultdd.on  { background-color:#F2E58A; }
+	
+	#PoiSchResultdl .SchResultdt  { width:100%; padding:5px; padding-bottom: 1px; font-weight:bold; cursor:pointer; color:#0066CC;}
+	#PoiSchResultdl .SchResultdt.on {background-color:#F2E58A;  }  
+	#PoiSchResultdl .SchResultdd  { width:100%; padding:5px; padding-top: 2px; margin-bottom : 10px; cursor:pointer;}
+	#PoiSchResultdl .SchResultdd.on { background-color:#F2E58A; }
+	
+	
+	#LocalSchResultdl .SchResultdt  { width:100%; padding:5px; padding-bottom: 1px; font-weight:bold; cursor:pointer; color:#0066CC;}
+	#LocalSchResultdl .SchResultdt.on {background-color:#F2E58A;  }  
+	#LocalSchResultdl .SchResultdd  { width:100%; padding:5px; padding-top: 2px; margin-bottom : 10px; cursor:pointer;}
+	#LocalSchResultdl .SchResultdd.on { background-color:#F2E58A; }
+	
+	
+	#arrvSchResultdl .SchResultdt  { width:100%; padding:5px; padding-bottom: 1px; font-weight:bold; cursor:pointer; color:#0066CC;}
+	#arrvSchResultdl .SchResultdt.on { background-color:#F2E58A;  } 
+	#arrvSchResultdl .SchResultdd  { width:100%; padding:5px; padding-top: 2px; margin-bottom : 10px; cursor:pointer;}
+	#arrvSchResultdl .SchResultdd.on { background-color:#F2E58A;}	
+
+	#statListOnStartLoc ul { margin:0px; padding:8px 2px 8px 10px;  }
+    #statListOnStartLoc ul li { height:20px; padding-top:5px; text-align:left;  font-size:12px; font-weight:bold; border:0px solid #000000; cursor:pointer }
+    #statListOnStartLoc ul li.on { background-color:#F2E58A; } 
+    
+    #statListOnPathLoc	.totInfo  { widht:100%; height:20px; text-align:center; padding-top:10px; font-weight: bold; }
+	#statListOnPathLoc #PathResultol { list-style:none; padding:0px; margin:0px; padding-top:5px;  padding-left:5px; }
+	#statListOnPathLoc #PathResultol li { height:35px; display:block; widht:100%; border-bottom: 1px dashed #c8cace;  cursor:pointer }
+	#statListOnPathLoc #PathResultol li div.icon  { width:30px; height:30px; padding:2px; display:inline-block;}
+	#statListOnPathLoc #PathResultol li div.ment  { vertical-align:top; width:190px;  height:30px; padding:2px; padding-top:6px; display:inline-block; white-space:wrap;}
+
+    /* Charger type info window */
+    #container #chrgtype{
+    	position:absolute;
+    	top:40px; right:40px;
+    	width:284px; height:156px;
+    	color : #ffffff;
+    	background:#2D3A43;
+    	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)"; /* IE 8 */
+		filter: alpha(opacity=80);  /* IE 5-7 */
+		-moz-opacity: 0.8;          /* Netscape */
+		-khtml-opacity: 0.8;        /* Safari 1.x */
+		opacity: 0.8;               /* Good browsers */
+		box-shadow: 2px 2px 2px #888888;
+    }
+    #container #chrgtype ul { padding-top:10px; padding-left:10px; }
+    #container #chrgtype ul li { list-style:none; font-size:14px; height:46px; }
+    #container #chrgtype ul li span { padding-left:20px; font-size:12px; }
+
+	#chrgmng{
+		position:absolute;
+		top:210px; right:40px;
+		width:200px; height:337px;
+		color : #ffffff;
+		background:#2D3A43;
+		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)"; /* IE 8 */
+		filter: alpha(opacity=80);  /* IE 5-7 */
+		-moz-opacity: 0.8;          /* Netscape */
+		-khtml-opacity: 0.8;        /* Safari 1.x */
+		opacity: 0.8;               /* Good browsers */
+		box-shadow: 2px 2px 2px #888888;
+	}
+	#chrgmng ul { padding-top:10px; padding-left:10px; }
+	#chrgmng ul li { list-style:none; font-size:12px; height:23px; }
+	#chrgmng ul li span { padding-left:10px; font-size:12px; }
+
+    /* Station info window */
+    #stationImgWin {
+    	position:absolute;
+    	top:50px; left:400px;
+    	background:#ffffff;
+		box-shadow: 4px 4px 4px #888888;
+		display:none;
+		z-index: 99999;
+    }
+    #stationImgWin #stationImgHead {padding:0px; margin:0px; background:#2D3A43; color:#ffffff; height:25px; left:0px; right:0px; top:0px; text-align:center; font-size:16px; font-weight:bold; letter-spacing:5px; padding-top:10px;    
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)"; /* IE 8 */
+		filter: alpha(opacity=80);  /* IE 5-7 */
+		-moz-opacity: 0.8;          /* Netscape */
+		-khtml-opacity: 0.8;        /* Safari 1.x */
+		opacity: 0.8;               /* Good browsers */
+		padding-right: 10px;
+		padding-left: 10px;
+    }
+    /* #stationImgWin #stationImgHead span { position:absolute; font-size:22px; width:30px; height:20px; right:0px; margin-top:-5px; font-weight:normal; cursor:pointer; } */
+    /* #stationImgWin #stationInfoContent { position:absolute; padding:0px; margin:0px; background:#ffffff; color:#2D3A43; left:0px; right:0px; top:35px; bottom:0px; overflow-y:scroll; overflow-x:auto;} */
+
+	#head #chrgstat ul li label span.TypeA { display:inline-block; background: url(/web/_images/monitor/icon00-gn.png) no-repeat; background-size: 20px; background-position: 50% 50%; width:25px; height:30px; margin:0px; padding:0px; margin-bottom:-10px; }
+	#head #chrgstat ul li label span.TypeB { display:inline-block; background: url(/web/_images/monitor/icon00-rd.png) no-repeat; background-size: 20px; background-position: 50% 50%; width:25px; height:30px; margin:0px; padding:0px; margin-bottom:-10px; }
+	#head #chrgstat ul li label span.TypeC { display:inline-block; background: url(/web/_images/monitor/icon00-bl.png) no-repeat; background-size: 20px; background-position: 50% 50%; width:25px; height:30px; margin:0px; padding:0px; margin-bottom:-10px; }
+	#head #chrgstat ul li label span.TypeD { display:inline-block; background: url(/web/_images/monitor/icon00-or.png) no-repeat; background-size: 20px; background-position: 50% 50%; width:25px; height:30px; margin:0px; padding:0px; margin-bottom:-10px; }
+	#head #chrgstat ul li label span.TypeE { display:inline-block; background: url(/web/_images/monitor/icon00-gr.png) no-repeat; background-size: 20px; background-position: 50% 50%; width:25px; height:30px; margin:0px; padding:0px; margin-bottom:-10px; }
+	#head #chrgstat ul li label span.TypeF { display:inline-block; background: url(/web/_images/monitor/icon00-et.png) no-repeat; background-size: 20px; background-position: 50% 50%; width:25px; height:30px; margin:0px; padding:0px; margin-bottom:-10px; }
+	#head #chrgstat ul li label span.TypeG { display:inline-block; background: url(/web/_images/monitor/icon00-un.png) no-repeat; background-size: 20px; background-position: 50% 50%; width:25px; height:30px; margin:0px; padding:0px; margin-bottom:-10px; }
+	
+	/** for ì¶©ì „ì†Œ ìƒì„¸ ì •ë³´  **/
+	.GisPop { background:#ffffff; font-family:'NanumGothic';  margin:0px; padding:0px; width:336px; height:374; padding:10px, 15px; background: url(/web/_images/monitor/infowin_top_bar.png) repeat-x;}
+	.GisPop div.title { font-size:17px; font-weight:500; height:30px; text-align:left; padding-left:20px;padding-top:10px; color:#ffffff; letter-spacing: 2px;}
+	
+	.GisPop div.statname { font-size:14px; height:17px; padding-top:3px; padding-bottom:10px; font-weight:normal; background:url(/web/_images/monitor/blit_02.gif) 5px 4px no-repeat; text-indent:25px;margin-top:15px; color:2d363f; border-bottom: dashed 1px #8f8f8f;}
+	
+	.GisPop table.ChargerInfo { widht:100%; margin-top:10px; border-collapse:collapse; border-spacing:0px; border: 0 none; }
+	.GisPop table.ChargerInfo caption { font-weight: normal; bfont-style: normal; visibility: hidden; width: 0px; height: 0px; position: absolute;}
+	.GisPop table.ChargerInfo thead th{ height:22px; border-top:2px solid #6a8bc0; border-bottom: 1px solid #cfcfcf;border-right:1px solid #cfcfcf; text-align:center; font-size:12px;letter-spacing:-1px;background:#f3f7fa; color:#2d363f; text-align:center;font-weight:bold;}
+	.GisPop table.ChargerInfo tbody td{ height:22px; border-top:1px solid #cfcfcf; border-bottom: 1px solid #cfcfcf;border-right:1px solid #cfcfcf; text-align:center; font-size:12px;letter-spacing:-1px;background:#FFFfff; color:#2d363f; text-align:center;font-weight:normal;}
+	
+	.GisPop table.StationInfo { widht:100%; margin-top:10px; border-collapse:separate; border-spacing:0px; border: 0 none; border-top:2px solid #8f8f8f; }
+	.GisPop table.StationInfo caption { font-weight: normal; bfont-style: normal; visibility: hidden; width: 0px; height: 0px; position: absolute;} */
+	.GisPop table.StationInfo tbody th{ height:25px; border-bottom: 1px solid #dedede; text-align:center; font-size:12px;letter-spacing:-1px;background:#F0F0F0; color:#333;}
+	.GisPop table.StationInfo tbody td{ height:25px; border-bottom: 1px solid #dedede; text-align:left;   font-size:12px;letter-spacing:-1px;background:#ffffff; color:#333; padding:0px 5px;}
+	
+	
+	.GisPop .close { float:right;width:12px;height:12px;cursor:pointer; background:url(/web/_images/monitor/LayerPopClose.png) no-repeat;  margin-top:5px; margin-right:15px;}
+	.GisPop .Class { width:18px; height: 18px }
+	.ollehmap-info-area { border : 1px solid #474747; }
+	
+	.GisPop .ChargerInfo thead, .GisPop .ChargerInfo tbody{    display: block;}
+	.GisPop table.ChargerInfo tbody{	overflow-y: scroll;	overflow-x: hidden;	width:336px;height:53px;}
+	.GisPop table.ChargerInfo thead .th1 { width: 55px ;}
+	.GisPop table.ChargerInfo thead .th2 { width: 160px ;}
+	.GisPop table.ChargerInfo thead .th3 { width: 112px ;}
+	.GisPop table.ChargerInfo tbody .td1 { width: 58px ;}
+	.GisPop table.ChargerInfo tbody .td2 { width: 170px ;}
+	.GisPop table.ChargerInfo tbody .td3 { width: 96px ;}
+	.GisPop .Thumbnail	{ overflow-y:hidden; overflow-x:scroll; width:255px; height:78px; margin:0px; padding:0px; white-space: nowrap;}
+	.GisPop .Thumbnail img { cursor:pointer; width:80px; height:60px; }
+	/** for ì¶©ì „ì†Œ ìƒì„¸ ì •ë³´  **/
+	
+	#findLoadControl{ width:100px; height:60px; margin:0px; padding: 0px; }	
+	#findLoadControlHead {position:absolute; left:0px; top:0px; right:0px; height:20px; background:#2D3A43; }
+	#findLoadControlHead .title{position:absolute; left:0px; top:0px; right:0px; bottom:0px; text-align: center;font-weight:bold; color: #ffffff; padding-top: 2px;}	
+	#findLoadControlHead .clsbtn {position:absolute; top:4px; right:5px; cursor:pointer;}
+	#findLoadControlContenet{position:absolute; left:0px; top:20px; right:0px; bottom:0px; background:#ffffff; color:#646464; font-weight:bold; font-size: 12px;}
+	#findLoadControlContenet table { width:100px; }
+	#findLoadControlContenet table tr { cursor:pointer; } 
+	#findLoadControlContenet table th { width:20px; background:url(/web/_images/monitor/blit_02.gif) 3px 1px no-repeat; } 
+	#findLoadControlContenet table td { width:80px; padding-top:3px;}
+	
+	#chrgtype #btnOpenClose { cursor:pointer;}
+
+	.ptypeA { width: 60px; height: 18px; margin: 0 auto; color: #FFF; font-size: 1em; background: #3d91d1; border: 1px solid #2c6a99; }
+	.ptypeB { width: 60px; height: 18px; margin: 0 auto; color: #FFF; font-size: 1em; background: #12a844; border: 1px solid #09722c; }
+	.ptypeC { width: 60px; height: 18px; margin: 0 auto; color: #FFF; font-size: 1em; background: #a60000; border: 1px solid #740000; }
+	.ptypeD { width: 60px; height: 18px; margin: 0 auto; color: #FFF; font-size: 1em; background: #ff8040; border: 1px solid #b93000; }
+	.ptypeE { width: 60px; height: 18px; margin: 0 auto; color: #FFF; font-size: 1em; background: #808080; border: 1px solid #5a5a5a; }
+	.ptypeF { width: 60px; height: 18px; margin: 0 auto; color: #FFF; font-size: 1em; background: #CA6400; border: 1px solid #5a5a5a; }
+	.ptypeG { width: 60px; height: 18px; margin: 0 auto; color: #FFF; font-size: 1em; background: #C7CA7C; border: 1px solid #ABAD6D; }
+	.ptypeX { width: 60px; height: 18px; margin: 0 auto; color: #FFF; font-size: 1em; background: #FFF; border: 1px solid #5a5a5a; }
